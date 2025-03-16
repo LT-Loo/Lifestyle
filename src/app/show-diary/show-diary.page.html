@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title mode = "ios">{{date | date : 'dd MMM YYYY'}}</ion-title>
+
+    <!--Save edited diary and close Show Diary Page-->
+    <ion-button (click)="saveEditedDiary()" slot="start" fill="clear">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<!--Show diary-->
+<ion-content>
+
+  <!--Mood-->
+  <ion-item>
+    <ion-label position = "stacked" style = "font-size: 17px" mode = "ios">This Day's Mood</ion-label>
+    <ion-range disabled = "true" min = "0" max = "10" snaps = "true" ticks = "true" color = "primary" value = "mood" [(ngModel)] = "mood">
+      <ion-icon size = "medium" slot = "start" name = "sad-outline"></ion-icon>
+      <ion-icon size = "medium" slot = "end" name = "happy-outline"></ion-icon>
+    </ion-range>
+  </ion-item>
+
+  <!--Location-->
+  <ion-item>
+    <ion-icon name = "footsteps-outline" style = "padding-right: 0.5em" (click) = "openMap()"></ion-icon>
+    <ion-text color = "grey">{{place}}</ion-text>
+  </ion-item>
+
+  <!--Diary-->
+  <ion-item>
+    <ion-textarea inputmode = "text" spellcheck = "true"
+                  placeholder = "Hey! How was your day?" autogrow = "true" 
+                  [(ngModel)] = "diary" readonly = "{{edit}}"></ion-textarea>
+  </ion-item>
+
+  <!--Images-->
+  <ion-item>
+    <ul id = "preview" style = "list-style-type:none; padding:0.5em"></ul>
+  </ion-item>
+
+</ion-content>
+
+<!--EDIT/SAVE button-->
+<ion-item position = "bottom">
+  <ion-button slot = "start" fill = "clear" size = "medium" (click)="deleteDiary()">DELETE</ion-button>
+  <ion-button slot = "end" fill = "clear" size = "medium" (click) = "editDiary()">{{editButton}}</ion-button>
+</ion-item>

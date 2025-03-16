@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Goal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Goal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion--list>
+
+    <!--Button to Chart Page-->
+    <ion-button expand = "block" size = "medium" fill = "outline" style = "padding-top: 5px" (click) = "goalHistory()">
+      GOAL CHART
+    </ion-button>
+
+    <!--Lists of goals with delete and done options-->
+    <ion-item-sliding *ngFor = "let goal of goals; index as i" style = "margin-bottom: 5px">
+      <ion-item (click) = "showGoal(i)"><p>
+        <ion-text color = "grey" style = "font-size: small">Before {{goal.deadline | date: "dd MMM"}}</ion-text>
+        <br><ion-text>{{goal.goal}}</ion-text></p>
+      </ion-item>
+      <ion-item-options side = "end">
+        <ion-item-option style = "background-color: lightslategrey" (click) = "deleteGoal(i)">
+          <ion-icon size = "small" slot = "top" name = "trash-outline"></ion-icon>
+          DELETE
+        </ion-item-option>
+      </ion-item-options> 
+      <ion-item-options side = "start">
+        <ion-item-option color = "success" (click) = "goalDone(i)">
+          <ion-icon size = "small" slot = "top" name = "checkmark-done-circle-outline"></ion-icon>
+          DONE
+        </ion-item-option>
+      </ion-item-options>  
+    </ion-item-sliding>
+  </ion--list>
+
+  <!--Button to add new goal-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="addGoal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

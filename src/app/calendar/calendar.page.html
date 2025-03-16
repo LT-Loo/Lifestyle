@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Calendar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--Change the view mode-->
+  <ion-segment [(ngModel)]="calendar.mode">
+    <ion-segment-button value="month">
+      <ion-label>Month</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="week">
+      <ion-label>Week</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="day">
+      <ion-label>Day</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-row>
+    <!--Move back one screen of the slides-->
+    <ion-col size="2">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="8" class="ion-text-center">
+      <h3>{{ viewTitle }}</h3>
+    </ion-col>
+
+    <!--Move forward one screen of the slides-->
+    <ion-col size="2">
+      <ion-button fill="clear" (click)="next()">
+        <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <!--Calendar-->
+  <calendar
+   [eventSource]="eventSource"
+   [calendarMode]="calendar.mode"
+   [currentDate]="calendar.currentDate"
+   (onEventSelected)="onEventSelected($event)"
+   (onTitleChanged)="onViewTitleChanged($event)"></calendar>
+
+  <!--Floating button to add event-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="addEvent()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lifestyle
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Lifestyle</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--Print random motivation quote-->
+  <div id="container">
+    <strong>TODAY'S MOTTO</strong>
+    <h4>{{motto}}</h4>
+  </div>
+</ion-content>
+
+<!--Tabs-->
+<ion-tabs>
+  <ion-tab-bar slot = "bottom">
+    <ion-tab-button tab = "calendar">
+      <ion-icon name = "calendar-number-outline"></ion-icon>
+      <ion-label>Calendar</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab = "diary">
+      <ion-icon name = "pencil-outline"></ion-icon>
+      <ion-label>Diary</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab = "goal">
+      <ion-icon name = "star-outline"></ion-icon>
+      <iont-label>Goals</iont-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

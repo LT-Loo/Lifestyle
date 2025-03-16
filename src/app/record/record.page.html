@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!--Back button to return to Goal Page-->
+    <ion-button (click)="backToGoal()" slot="start" fill="clear">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    
+    <ion-title style = "text-align: center" mode = "ios">Goal Chart</ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--Show chart of goals-->
+  <canvas #goalChart height = "270"></canvas>
+  
+  <!--Show accomplished goal in the form of card-->
+  <ion-card *ngFor = "let record of goalRecord.slice().reverse()">
+    <ion-card-header mode = "md">
+      <ion-card-title>{{record.goal}}</ion-card-title>
+      <ion-card-subtitle>Accomplished Date: {{record.finishDate | date: 'dd MMM YYYY'}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content mode = "md" class = "item-text-wrap">{{record.desc}}</ion-card-content>
+  </ion-card>
+  
+</ion-content>

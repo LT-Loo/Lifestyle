@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!--Save edited goal and close Edit Goal Page-->
+    <ion-button (click)="closeEditGoal()" slot="start" fill="clear">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+
+    <ion-title style="text-align: center" mode = "ios">Your Goal</ion-title>
+    
+    <!--EDIT/SAVE button-->
+    <ion-button (click)="editGoal()" slot="end" fill="clear">{{editButton}}</ion-button>
+  
+  </ion-toolbar>
+</ion-header>
+
+<!--Show goals-->
+<ion-content>
+
+  <ion-item>
+    <ion-label color = "grey">Deadline</ion-label>
+    <ion-datetime disabled = "{{edit}}" displayFormat = "DD MMM YYYY" [(ngModel)] = "deadline" placeholder = "Select Date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color = "grey" position = "stacked" style = "font-size: 17px" mode = "ios">Title</ion-label>
+    <ion-input maxlength = "25" type = "text" placeholder = "What's your goal?" [(ngModel)] = "goal" name = "goal" readonly ="{{edit}}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color = "grey" position = "stacked" style = "font-size: 17px" mode = "ios">Description</ion-label>
+    <ion-textarea inputmode = "text" spellcheck = "true"
+                  placeholder = "Tell us more about your goal." autogrow = "true" 
+                  [(ngModel)] = "desc" readonly = "{{edit}}"></ion-textarea>
+  </ion-item>
+
+</ion-content>

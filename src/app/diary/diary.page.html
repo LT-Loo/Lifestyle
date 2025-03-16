@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Diary</ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Diary</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--Show list of diaries in card form-->
+  <ion-card *ngFor = "let diary of showDiaries.slice().reverse(); index as i" (click) = "showDiary(showDiaries.length - i - 1)">
+    <ion-card-header>
+      <ion-card-title>{{diary.date | date: 'dd MMM YYYY'}}</ion-card-title>
+      <ion-card-subtitle>{{diary.date | date: 'EEE'}} {{diary.date | date: 'hh:mm aa'}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class = "item-text-wrap">{{diary.diary}}</ion-card-content>
+  </ion-card>
+
+  <!--Floating button to write new diary-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="writeDiary()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!--Close Mapping Page without saving diary-->
+    <ion-button (click)="closeMap()" slot="start" fill="clear">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+
+    <ion-title style="text-align: center">Map</ion-title>
+
+    <!--Save and close Mapping Page-->
+    <ion-button (click)="saveMap()" slot="end" fill="clear">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<!--Show map-->
+<ion-content>
+  <div #map id='map'></div>
+</ion-content>

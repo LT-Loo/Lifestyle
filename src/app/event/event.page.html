@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!--Close Event Page without creating new event-->
+    <ion-button (click)="closeEvent()" slot="start" fill="clear">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+
+    <ion-title style="text-align: center">Event</ion-title>
+    
+    <!--Save new event and close Event Page-->
+    <ion-button (click)="saveEvent()" slot="end" fill="clear">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<!--Create new event-->
+<ion-content>
+
+  <ion-item>
+    <ion-label>Start Date</ion-label>
+    <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.startTime" placeholder="Select Date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>End Date</ion-label>
+    <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.endTime" placeholder="Select Date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>All Day</ion-label>
+    <ion-checkbox [(ngModel)]="event.allDay" (click)="selectTime()"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Start Time</ion-label>
+    <ion-datetime displayFormat="hh:mm A" [(ngModel)]="event.start" placeholder="Select Time" disabled="{{allday}}"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>End Time</ion-label>
+    <ion-datetime displayFormat="hh:mm A" [(ngModel)]="event.end" placeholder="Select Time" disabled="{{allday}}"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="event-label" position="stacked" mode = "ios" style = "font-size: 17px">Event</ion-label>
+    <ion-input type="text" [(ngModel)]="event.title" clearInput placeholder = "Event Title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="event-label" position="stacked" mode = "ios" style = "font-size: 17px">Description</ion-label>
+    <ion-textarea type="text" [(ngModel)]="event.desc" placeholder = "Tell us more about this event."></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Reminder</ion-label>
+    <ion-checkbox [(ngModel)]="event.reminder"></ion-checkbox>
+  </ion-item>
+
+</ion-content>

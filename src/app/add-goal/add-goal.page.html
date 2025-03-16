@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!--Close Add Goal Page without saving anything-->
+    <ion-button (click)="closeNewGoal()" slot="start" fill="clear">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+
+    <ion-title style="text-align: center">New Goal</ion-title>
+    
+    <!--Save new goal and close Add Goal Page-->
+    <ion-button (click)="saveNewGoal()" slot="end" fill="clear">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<!--Add new goal-->
+<ion-content>
+
+  <ion-item>
+    <ion-label color = "grey">Deadline</ion-label>
+    <ion-datetime displayFormat = "DD MMM YYYY" [(ngModel)] = "deadline" placeholder = "Select Date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color = "grey" position = "stacked" style = "font-size: 17px" mode = "ios">Title</ion-label>
+    <ion-input maxlength = "25" type = "text" placeholder = "What's your goal?" [(ngModel)] = "goal" name = "goal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color = "grey" position = "stacked" style = "font-size: 17px" mode = "ios">Description</ion-label>
+    <ion-textarea inputmode = "text" spellcheck = "true"
+                  placeholder = "Tell us more about your goal." autogrow = "true" 
+                  [(ngModel)] = "desc"></ion-textarea>
+  </ion-item>
+
+</ion-content>
