@@ -12,7 +12,7 @@ The calendar is created using the ***ionic2-calendar*** library. Users can choos
 The goal journal includes a chart feature that tracks and visually illustrates the percentage of completed and uncompleted goals.
 
 ## Technologies Used
-- Language: JavaScript
+- Language: TypeScript
 - Framework: Ionic 5 (https://ionicframework.com/docs)
 - Environment: Node.js (https://nodejs.org/en)
 
